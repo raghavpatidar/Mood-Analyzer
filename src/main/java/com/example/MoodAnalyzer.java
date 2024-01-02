@@ -3,17 +3,18 @@ package com.example;
 public class MoodAnalyzer<T> {
     private T message;
 
-    MoodAnalyzer(T msg) {
+    public MoodAnalyzer(T msg) {
         this.message = msg;
     }
 
     public String analyseMood() {
-        String messageStr = this.message.toString();
+        String messageStr = this.message.toString().toLowerCase();
+        // messageStr.contain
 
         if (messageStr.contains("happy"))
-            return "Happy Mood";
+            return "Happy";
         else if (messageStr.contains("sad"))
-            return "Sad Mood";
+            return "Sad";
 
         return "Unable to determine Mood";
     }
