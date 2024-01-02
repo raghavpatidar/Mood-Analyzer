@@ -11,18 +11,23 @@ public class MoodAnalyzer<T> {
         this.message = msg;
     }
 
-    public String analyseMood() {
+    public String analyseMood() throws MoodAnalysisException {
         try {
-            if (this.message == null) {
-                return "Happy";
+            if (message == null) {
+                throw new MoodAnalysisException(ExceptionType.NULL_MOOD, "Mood is null");
             }
 
-            String messageStr = this.message.toString().toLowerCase();
-            if (messageStr.contains("sad"))
+            String messageStr = this.message.toString().trim().toLowerCase();
+            if (messageStr.isEmpty()) {
+                throw new MoodAnalysisException(ExceptionType.EMPTY_MOOD, "Mood is empty");
+            }
+
+            if (messageStr.contains("sad")) {
                 return "Sad";
+            }
             return "Happy";
         } catch (NullPointerException e) {
-            return "Happy";
+            throw new MoodAnalysisException(ExceptionType.NULL_MOOD, "Mood is null");
         }
 
     }
