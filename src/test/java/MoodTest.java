@@ -1,5 +1,4 @@
 import static org.junit.jupiter.api.Assertions.assertEquals;
-import static org.junit.jupiter.api.Assertions.assertNull;
 
 import org.junit.jupiter.api.Test;
 
@@ -7,9 +6,17 @@ import com.example.MoodAnalyzer;
 
 public class MoodTest {
     @Test
-    public void tempTest() {
+    public void moodAnalyzerTest1() {
         String msg = "I am in Sad Mood";
-        MoodAnalyzer moodAnalyzer = new MoodAnalyzer(msg);
+        MoodAnalyzer<String> moodAnalyzer = new MoodAnalyzer<String>(msg);
         assertEquals("Sad", moodAnalyzer.analyseMood());
     }
+
+    @Test
+    public void moodAnalyzerTest2() {
+        String msg = "“I am in Any Mood";
+        MoodAnalyzer<String> moodAnalyzer = new MoodAnalyzer<String>(msg);
+        assertEquals("Happy", moodAnalyzer.analyseMood());
+    }
+
 }
