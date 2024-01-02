@@ -3,6 +3,10 @@ package com.example;
 public class MoodAnalyzer<T> {
     private T message;
 
+    public MoodAnalyzer() {
+
+    }
+
     public MoodAnalyzer(T msg) {
         this.message = msg;
     }
