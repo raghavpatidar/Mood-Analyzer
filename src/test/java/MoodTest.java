@@ -6,15 +6,22 @@ import com.example.MoodAnalyzer;
 
 public class MoodTest {
     @Test
-    public void moodAnalyzerTest1() {
+    public void moodAnalyzerTestUC11() {
         String msg = "I am in Sad Mood";
         MoodAnalyzer<String> moodAnalyzer = new MoodAnalyzer<String>(msg);
         assertEquals("Sad", moodAnalyzer.analyseMood());
     }
 
     @Test
-    public void moodAnalyzerTest2() {
-        String msg = "“I am in Any Mood";
+    public void moodAnalyzerTestUC12() {
+        String msg = "I am in Any Mood";
+        MoodAnalyzer<String> moodAnalyzer = new MoodAnalyzer<String>(msg);
+        assertEquals("Happy", moodAnalyzer.analyseMood());
+    }
+
+    @Test
+    public void moodAnalyzerTestUC21() {
+        String msg = null;
         MoodAnalyzer<String> moodAnalyzer = new MoodAnalyzer<String>(msg);
         assertEquals("Happy", moodAnalyzer.analyseMood());
     }

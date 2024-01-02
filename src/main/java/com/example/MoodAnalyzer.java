@@ -12,9 +12,23 @@ public class MoodAnalyzer<T> {
     }
 
     public String analyseMood() {
-        String messageStr = this.message.toString().toLowerCase();
-        if (messageStr.contains("sad"))
-            return "Sad";
-        return "Happy";
+        try {
+            if (this.message == null) {
+                // Handle null mood scenario
+                return "Happy";
+            }
+
+            String messageStr = this.message.toString().toLowerCase();
+            if (messageStr.contains("sad"))
+                return "Sad";
+            return "Happy";
+        } catch (NullPointerException e) {
+            // Handle other potential null pointer exceptions
+            return "Happy";
+        }
+        // String messageStr = this.message.toString().toLowerCase();
+        // if (messageStr.contains("sad"))
+        // return "Sad";
+        // return "Happy";
     }
 }
